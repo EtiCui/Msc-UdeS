@@ -4,7 +4,12 @@
 Created on Tue Jan 10 09:55:40 2017
 
 @author: etienne
-This function will open a log.lammps output and returns a pandas dataframe
+This script will open a log.lammps output from LAMMPS and output a pandas dataframe
+
+Usage:
+# This script must be in PYTHONPATH or working directory
+from thermo_dataframe import open_thermo
+thermo_df = open_thermo(fname="log.lammps")
 
 Requirement:
 numpy
@@ -22,7 +27,8 @@ import pandas as pd
 
 def open_thermo(fname="log.lammps"):
     """Function to read the log.lammps
-    Returns: a pandas dataframe with step as index and the thermo_style as columns"""
+    Input: log.lammps file
+    Output: a pandas dataframe with step as index and the thermo_style as columns"""
     #Opens the file
     f = open(fname, "r")
     get_thermo = False
