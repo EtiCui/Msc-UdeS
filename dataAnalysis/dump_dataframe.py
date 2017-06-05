@@ -4,7 +4,9 @@
 Created on Tue Sep 27 10:11:22 2016
 
 @author: etienne
-This function will read a LAMMPS compressed dump (ex:dump.step.gz) and return the step, cell dimensions (x,y,z), number of atoms and atoms informations as a dictionnary. The atoms information is a pandas dataframe with the atom attributes as columns and id as index
+This function will read a LAMMPS compressed dump (ex:dump.step.gz) and return the step, cell dimensions (x,y,z),
+number of atoms and atoms informations as a dictionnary. The atoms information is a pandas dataframe with the
+atom attributes as columns and id as index
 
 Usage:
 # This script must be in PYTHONPATH or working directory
@@ -33,7 +35,9 @@ import pandas as pd
 def read_dump(fname):
     """Function to read dump from LAMMPS
     Input: filename of dump
-    Output: Dictionnary with {"Step":timestep,"nb_atoms":nb_atoms,"dimensions":dimensions,"atom_df":atom_df} where dimensions is a list of the cell dimensions (x,y,z) and atom_df a pandas dataframe with the atoms attributes as columns
+    Output: Dictionnary with {"Step":timestep,"nb_atoms":nb_atoms,"dimensions":dimensions,"atom_df":atom_df}
+    where dimensions is a list of the cell dimensions (x,y,z) and atom_df a pandas dataframe with the atoms
+    attributes as columns
     """
     f = gzip.open(fname, "rt")
     get_atoms = False
