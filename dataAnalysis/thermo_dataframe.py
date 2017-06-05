@@ -8,7 +8,7 @@ This script will open a log.lammps output from LAMMPS and output a pandas datafr
 
 Usage:
 # This script must be in PYTHONPATH or working directory
-from thermo_dataframe import open_thermo
+from thermo_dataframe import read_thermo
 thermo_df = open_thermo(fname="log.lammps")
 
 Requirement:
@@ -25,11 +25,12 @@ Multiple dataframe if there are multiple runs in the log.lammps
 import numpy as np
 import pandas as pd
 
-def open_thermo(fname="log.lammps"):
-    """Function to read the log.lammps
+
+def read_thermo(fname="log.lammps"):
+    """Function to read log.lammps
     Input: log.lammps file
     Output: a pandas dataframe with step as index and the thermo_style as columns"""
-    #Opens the file
+    # Opens the file
     f = open(fname, "r")
     get_thermo = False
     thermo_data = []
@@ -40,7 +41,7 @@ def open_thermo(fname="log.lammps"):
             columns_name = line.split()
             line = next(f)
         if line.startswith("Loop time"):
-            get_thermo=False
+            get_thermo = False
         if get_thermo == True:
             thermo_data.append(line.split())
 
