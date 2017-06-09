@@ -5,6 +5,10 @@ Usage:
 from lennardjones import visualize_lj
 visualize_lj(e=[3,4],s=[4,6],x=[3,10,0.05],ylim=[-6.5,4.5])
 
+Requirement:
+numpy 
+matplotlib
+
 Limitations:
 Even if there is only one epsilon or sigma, they must be in a list, ex: e=[3] and not e=3
 """
