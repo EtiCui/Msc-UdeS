@@ -17,8 +17,8 @@ numpy
 matplotlib
 pandas
 Python interface to LAMMPS (http://lammps.sandia.gov/doc/Section_python.html)
-LAMMPS compiled with asphere package
-system.data file (the defined parameters will be overwrited)
+LAMMPS compiled with asphere and molecule package
+system.data file (the defined parameters will be overwritten)
 
 TODO:
 The system.data file should not be required
@@ -71,7 +71,8 @@ class gb():
         lmp.command("set atom 2 quat 1 0 0 0")
         # Define the gay-berne pair_coeff
         lmp.command("pair_coeff 1 1 1.0 %f %f %f %f %f %f %f" % (self.sigma, self.cross_depth, self.cross_depth,
-                                                                 self.end_depth, self.cross_depth, self.cross_depth, self.end_depth))
+                                                                 self.end_depth, self.cross_depth,
+                                                                 self.cross_depth, self.end_depth))
 
         # function to move the first ellipsoid. direction: 0 is x, 1 is y and 2
         # is z.
@@ -149,10 +150,10 @@ class gb():
 
         for configuration in self.colors:
             # Remove values with a energy superior to 5 for the graph
-            df_graph = lammps_df.where(
-                lammps_df[str(configuration) + "_energy"] < 5)
-            plt.plot(df_graph[str(configuration) + "_distance"].dropna(), df_graph[str(configuration) + "_energy"].dropna(
-            ), label=str(configuration), color=self.colors[configuration], ms=5, markevery=0.02)
+            df_graph = lammps_df.where(lammps_df[str(configuration) + "_energy"] < 5)
+            plt.plot(df_graph[str(configuration) + "_distance"].dropna(),
+            df_graph[str(configuration) + "_energy"].dropna(), label=str(configuration),
+            color=self.colors[configuration], ms=5, markevery=0.02)
             plt.ylabel(r"Potentiel ($\epsilon_0$)")
             plt.xlabel(r"Distance ($\sigma_0$)")
 
