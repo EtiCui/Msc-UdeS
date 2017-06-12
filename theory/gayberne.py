@@ -2,8 +2,8 @@
 for the side-by-side, end-to-end,tee and cross configurations for a uniaxial ellipsoid.
 
 Note:
-If the default intermolecular distance for a configuration are too far from it's minimum,
-some tuning might be required for the move_molecule function
+If the default intermolecular distances for a configuration are too far from it's minimum,
+some tuning might be required in the move_molecule function
 
 Usage:
 #the script must be in python path or working directory
