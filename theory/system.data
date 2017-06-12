@@ -1,0 +1,31 @@
+LAMMPS Description
+
+     2  atoms
+0 bonds
+2 ellipsoids
+     0  angles
+     0  dihedrals
+     0  impropers
+
+     1  atom types
+     0  bond types
+     0  angle types
+     0  dihedral types
+
+  0.0 100 xlo xhi
+  0.0 100 ylo yhi
+  0.0 100 zlo zhi
+
+Masses
+
+   1   380.496
+
+Atoms # atomid atomtype x y z molid ellipsoidflag density
+
+1 1 0 0 0 1 1 0.136067
+2 1 0 0 0 1 1 0.136067
+
+Ellipsoids
+
+1 1 1 1 1 1 0 0
+1 1 1 1 1 0 0 0
