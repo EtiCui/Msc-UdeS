@@ -72,6 +72,6 @@ def read_dump(fname):
 
     # convert to a pandas data frame
     atom_df = pd.DataFrame(atoms_data, columns=columns_name)
-    atom_df = atom_df.set_index(["id"])
     atom_df = atom_df.apply(pd.to_numeric)
+    atom_df = atom_df.set_index(["id"])    
     return {"step": timestep, "nb_atoms": nb_atoms, "dimensions": dimensions, "atom_df": atom_df}
