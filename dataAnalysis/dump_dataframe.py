@@ -32,7 +32,7 @@ import gzip
 import pandas as pd
 
 
-def read_dump(fname):
+def read_dump(fname, wrap=False):
     """Function to read dump from LAMMPS
     Input: filename of dump
     Output: Dictionnary with {"Step":timestep,"nb_atoms":nb_atoms,"dimensions":dimensions,"atom_df":atom_df}
@@ -73,5 +73,26 @@ def read_dump(fname):
     # convert to a pandas data frame
     atom_df = pd.DataFrame(atoms_data, columns=columns_name)
     atom_df = atom_df.apply(pd.to_numeric)
-    atom_df = atom_df.set_index(["id"])    
+    atom_df = atom_df.set_index(["id"])
+
+    # wrapping coordinates
+    if wrap == True:
+        list_coord = {"x":0,"y":1,"z":2}
+        bounds = {"x": x_bound, "y": y_bound, "z": z_bound}
+        atom_df["x"] = atom_df["xu"]
+        atom_df["y"] = atom_df["yu"]
+        atom_df["z"] = atom_df["zu"]
+        # for each xyz coordinates
+        for coord in list_coord:
+            #while there are values not in the box
+            while atom_df[coord].max() > bounds[coord][1] or atom_df[coord].min() < bounds[coord][0]:
+                #mask for the values that are within the box
+                mask1 = atom_df[coord] > bounds[coord][0]
+                mask2 = atom_df[coord] < bounds[coord][1]
+                # add the dimensions of the box for those below the range and substract if over
+                atom_df[coord] = atom_df[coord].where(
+                    mask1, atom_df[coord] + dimensions[list_coord[coord]])
+                atom_df[coord] = atom_df[coord].where(
+                    mask2, atom_df[coord] - dimensions[list_coord[coord]])
+
     return {"step": timestep, "nb_atoms": nb_atoms, "dimensions": dimensions, "atom_df": atom_df}
