@@ -40,7 +40,8 @@ import matplotlib.pyplot as plt
 
 
 class PO():
-    def __init__(self, fname, wrap, visualize, ini_layer_spacing=35., gb_type=3, gb_ends_type=2, atoms_per_monomer=23, number_of_monomer=800, number_of_chains=100):
+    def __init__(self, fname, wrap, visualize, ini_layer_spacing=35., gb_type=3, gb_ends_type=2,
+                atoms_per_monomer=23, number_of_monomer=800, number_of_chains=100):
         """Initialization of the parameters and reading the dump
 
         Args:
@@ -202,8 +203,10 @@ class PO():
         return self.step, self.sma_OP, self.layer_spacing
 
     def sma(self):
-        """This function will calculate the SmA order parameter by least-square fitting a the two-particle density correlation function. Will return -1 if it did not converge
-        WARNING the layer direction will be the direction of the box dimensions which is not always true, visualizing the results  is thus important
+        """This function will calculate the SmA order parameter by least-square fitting
+        the two-particle density correlation function. Will return -1 if it did not converge
+        WARNING the layer direction will be the direction of the box dimensions which is
+        not always true, visualizing the results  is thus important
 
         Returns:
         ----
