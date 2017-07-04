@@ -25,8 +25,8 @@ first_frame = -1000
 last_frame = -1
 
 
-def open_trajectory(nprocs, rank, first_frame, last_frame, wrap=True, visualize=True, ini_layer_spacing=35., gb_type=3, gb_ends_type=2,
-                    atoms_per_monomer=23, number_of_monomer=800, number_of_chains=100):
+def open_trajectory(nprocs, rank, first_frame, last_frame, wrap=True, visualize=True, ini_layer_spacing=35., 
+                    gb_type=3, gb_ends_type=2, atoms_per_monomer=23, number_of_monomer=800, number_of_chains=100):
     """
     This function will open a LAMMPS trajectory in parallel to calculate the SmA and nematic order parameters.
     Each frames are considered independent, and the final results are transmitted to the processor with rank=0
