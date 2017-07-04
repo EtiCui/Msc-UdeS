@@ -197,7 +197,7 @@ class PO():
             plt.plot(distance, func(distance, popt[0], popt[1], popt[2], popt[3], popt[4], popt[5],
                                     popt[6]), label=r"$1+2\sum_{n=1}^6 (\tau_n)^2 cos( \frac{2\pi n z_{12}}{d})$")
             plt.legend(loc="upper right")
-            plt.savefig("gz12." + str(self.step) + ".png", dpi=300)
+            plt.savefig("gz12_" + str(self.step) + ".png", dpi=300)
 
         self.sma_OP, self.layer_spacing, self.t2, self.t3, self.t4, self.t5, self.t6 = popt
         return self.step, self.sma_OP, self.layer_spacing
@@ -271,5 +271,5 @@ class PO():
         except RuntimeError:
             # return -1, -1 if it did not converge for the PO and the layer
             # spacing
-            plt.savefig("gz12." + str(self.step) + ".png", dpi=300)
+            plt.savefig("gz12_" + str(self.step) + ".png", dpi=300)
             return self.step, -1, -1
