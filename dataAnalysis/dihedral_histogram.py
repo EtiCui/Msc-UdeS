@@ -3,8 +3,6 @@
 These function will read LAMMPS output (dihedral.#step.out) of the dihedral angles (column1:#, column2:angle value),
 to plot an histogram of the angle's frequencies.
 Works in parallel with mpi4py, altough it's very fast without parallelisation.
-A
-
 
 Usage:
 #change first and last desired step in the script
