@@ -16,7 +16,7 @@ mpi4py
 pandas
 
 TODO
-Read a trajectory in a single file
+Read a trajectory from a single file
 """
 import numpy as np
 import matplotlib.pyplot as plt
