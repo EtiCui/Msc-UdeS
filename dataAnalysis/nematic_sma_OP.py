@@ -271,5 +271,6 @@ class PO():
         except RuntimeError:
             # return -1, -1 if it did not converge for the PO and the layer
             # spacing
-            plt.savefig("gz12_" + str(self.step) + ".png", dpi=300)
+            if self.visualize ==True:                
+                plt.savefig("gz12_" + str(self.step) + ".png", dpi=300)
             return self.step, -1, -1

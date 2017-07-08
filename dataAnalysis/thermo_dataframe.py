@@ -40,7 +40,7 @@ def read_thermo(fname="log.lammps"):
             # Use this line for the column name
             columns_name = line.split()
             line = next(f)
-        if line.startswith("Loop time"):
+        if line.startswith("Loop time") or line.startswith("WARNING"):
             get_thermo = False
         if get_thermo == True:
             thermo_data.append(line.split())
