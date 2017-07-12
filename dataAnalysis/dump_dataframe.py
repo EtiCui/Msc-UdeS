@@ -10,7 +10,7 @@ atom attributes as columns and id as index
 
 Usage:
 # This script must be in PYTHONPATH or working directory
-from dump_dataframe import read_thermo
+from dump_dataframe import read_dump
 dump = read_dump(fname="dump.500.gz",wrap=True)
 step = dump["Step"]
 nb_atoms = dump["nb_atoms"]
@@ -36,7 +36,7 @@ def read_dump(fname, wrap=False):
     """Function to read dump from LAMMPS
     Input: filename of dump
     wrap(bool): True if the coordinates need to be wrapped
-    
+
     Output: Dictionnary with {"Step":timestep,"nb_atoms":nb_atoms,"dimensions":dimensions,"atom_df":atom_df}
     where dimensions is a list of the cell dimensions (x,y,z) and atom_df a pandas dataframe with the atoms
     attributes as columns
