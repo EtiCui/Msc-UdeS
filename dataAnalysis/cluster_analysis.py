@@ -15,7 +15,6 @@ Requirement:
 python2
 numpy
 pandas
-matplotlib
 dump_dataframe.py
 
 Limitations:
@@ -24,8 +23,6 @@ from different layers share a cluster_id
 """
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from glob import glob
 from dump_dataframe import read_dump
 
 
