@@ -86,7 +86,7 @@ def read_dump(fname, wrap=False):
         atom_df["z"] = atom_df["zu"]
         # for each xyz coordinates
         for coord in list_coord:
-            #while there are values not in the box
+            #while there coordinates outisde the box
             while atom_df[coord].max() > bounds[coord][1] or atom_df[coord].min() < bounds[coord][0]:
                 #mask for the values that are within the box
                 mask1 = atom_df[coord] > bounds[coord][0]
